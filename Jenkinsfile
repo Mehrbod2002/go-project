@@ -3,6 +3,7 @@ pipeline {
     environment {
         DOCKER_IMAGE = "go-jenkins-app:latest"
         K8S_DEPLOY_FILE = "k8s/deployment.yaml"
+        PATH = "/usr/local/bin:$PATH"
     }
     stages {
         stage('Build') {
