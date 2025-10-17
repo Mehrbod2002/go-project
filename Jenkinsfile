@@ -2,6 +2,8 @@ pipeline {
     agent any
     environment {
         DOCKER_IMAGE = "go-jenkins-app"
+        DOCKER_USER = credentials('mehrbodw')
+        DOCKER_PASSWORD = credentials('AMir87808780@@')
         PATH = "/usr/local/bin:$PATH"
     }
     stages {
@@ -9,6 +11,13 @@ pipeline {
             steps {
                 script {
                     sh 'docker build -t $DOCKER_IMAGE .'
+                }
+            }
+        }
+        stage('Docker Login') {
+            steps {
+                script {
+                    sh 'echo $DOCKER_PASSWORD | docker login -u $DOCKER_USER --password-stdin'
                 }
             }
         }
