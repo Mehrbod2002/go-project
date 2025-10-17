@@ -2,6 +2,7 @@ pipeline {
     agent any
     environment {
         DOCKER_IMAGE = "go-jenkins-app"
+        PATH = "/usr/local/bin:$PATH"
     }
     stages {
         stage('Build') {
