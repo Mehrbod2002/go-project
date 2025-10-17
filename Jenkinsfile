@@ -1,8 +1,8 @@
 pipeline {
     agent any
     environment {
-        DOCKER_IMAGE = "mehrbodw/go-jenkins-app:latest" 
-        PATH = "/usr/local/bin:$PATH"
+        DOCKER_IMAGE = "go-jenkins-app:latest"
+        K8S_DEPLOY_FILE = "k8s/deployment.yaml"
     }
     stages {
         stage('Build') {
@@ -15,7 +15,7 @@ pipeline {
         stage('Deploy to Kubernetes') {
             steps {
                 script {
-                    sh 'kubectl apply -f k8s/deployment.yaml'
+                    sh 'kubectl apply -f $K8S_DEPLOY_FILE'
                 }
             }
         }
