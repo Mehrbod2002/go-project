@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: go-web-app
-          image: go-jenkins-app:latest
+          image: mehrbodw/go-jenkins-app:latest
           ports:
             - containerPort: 8080
           resources:
