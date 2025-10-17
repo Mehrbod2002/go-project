@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        DOCKER_IMAGE = "go-jenkins-app"
+        DOCKER_IMAGE = "mehrbod2002/go-jenkins-app:latest" 
         DOCKER_USER = credentials('docker-username')
         DOCKER_PASSWORD = credentials('docker-password')
         PATH = "/usr/local/bin:$PATH"
